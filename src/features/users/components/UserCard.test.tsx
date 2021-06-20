@@ -14,12 +14,12 @@ const mockUser: User = {
 test("should render the user name and the name", () => {
   // have to wrap it around Router because I use <Link /> inside the component
   render(<BrowserRouter><UserCard u={mockUser} /></BrowserRouter>);
-  const name = screen.getByText("sl (Shia Labeouf)");
+  const name = screen.getByText(`${mockUser.username} (${mockUser.name})`);
   expect(name).toBeInTheDocument();
 });
 
 test("should render the user email", () => {
   render(<BrowserRouter><UserCard u={mockUser} /></BrowserRouter>);
-  const email = screen.getByText("shia@something.com");
+  const email = screen.getByText(mockUser.email);
   expect(email).toBeInTheDocument();
 });

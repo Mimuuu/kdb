@@ -1,9 +1,10 @@
 import React from "react";
-import { Post } from "../types";
+import { Post as PostType } from "../types";
+import Post from "./Post";
 import styles from "./Posts.module.scss";
 
 interface Props {
-  posts: Post[];
+  posts: PostType[];
 }
 
 function Posts({ posts }: Props) {
@@ -11,8 +12,7 @@ function Posts({ posts }: Props) {
 
   return (
     <div className={styles.container}>
-      {/* {posts.map(p => <Post key={p.id} p={p} />)} */}
-      {posts.map(p => <p key={p.id}>{p.title}</p>)}
+      {posts.map(p => <Post key={p.id} p={p} />)}
     </div>
   )
 }
