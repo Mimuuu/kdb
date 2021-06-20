@@ -2,16 +2,11 @@ import React from "react";
 import { get } from "../../../app/utils/http";
 import { Post as PostType } from "../types";
 import { Comment as CommentType } from "../types";
+import Comment from "./Comment";
 import styles from "./Post.module.scss";
 
 interface Props {
   p: PostType;
-}
-
-function renderComments(comments: CommentType[] | undefined, error: string) {
-  if (error) return <p className={styles.error}>failed to load comments</p>;
-  if (!comments) return <p>...</p>;
-  return 
 }
 
 function Post({ p }: Props) {
@@ -27,7 +22,7 @@ function Post({ p }: Props) {
     }
 
     loadComments();
-  }, []);
+  }, [p.id]);
 
   const toggleComments = () => setShowComments(!showComments);
 
@@ -48,8 +43,7 @@ function Post({ p }: Props) {
 
         {comments && (
         <div className={`${styles.comments} ${showComments && styles.visible}`}>
-          {/* {comments.map(c => <Comment key={c.id} c={c} />)} */}
-          {comments.map(c => <p key={c.id}>{c.id}</p>)}
+          {comments.map(c => <Comment key={c.id} c={c} />)}
         </div>
       )}
       </div>

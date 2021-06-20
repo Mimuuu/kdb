@@ -1,0 +1,11 @@
+.container {
+  margin: 10px 0;
+
+  > p {
+    font-size: 0.9em;
+  }
+
+  .name {
+    font-weight: 600;
+  }
+}
