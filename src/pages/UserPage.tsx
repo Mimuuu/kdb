@@ -3,7 +3,9 @@ import { useParams } from "react-router";
 import { User } from "../features/users/types";
 import styles from "./UserPage.module.scss";
 import Spinner from "../features/_elements/Spinner";
+import Posts from "../features/posts/components/Posts";
 import { get } from "../app/utils/http";
+import { Post } from "../features/posts/types";
 
 interface RouteProps {
   userId: string;
@@ -13,7 +15,7 @@ function UserPage() {
   const { userId } = useParams<RouteProps>();
   
   const [user, setUser] = React.useState<User | undefined>(undefined);
-  const [posts, setPosts] = React.useState<User | undefined>(undefined);
+  const [posts, setPosts] = React.useState<Post[] | undefined>(undefined);
   const [error, setError] = React.useState<string>("");
 
   React.useEffect(() => {
@@ -49,7 +51,7 @@ function UserPage() {
       <h3>{user.username}'s posts</h3>
       
       <div className={styles.posts}>
-        {/* <Posts posts={posts} /> */}
+        <Posts posts={posts} />
       </div>
     </div>
   );
