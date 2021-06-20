@@ -1,24 +1,19 @@
-import logo from "./logo.svg";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import UsersListPage from "./pages/UsersListPage";
+
 import style from "./App.module.scss";
 
 function App() {
   return (
-    <div className={style.App}>
-      <header className={style["App-header"]}>
-        <img src={logo} className={style["App-logo"]} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className={style["App-link"]}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Link to={"/"}><h1>KdB</h1></Link>
+
+      <Switch>
+        <Route path="/" component={UsersListPage} />
+        {/* <Route path="/:userId" component={UserPage} /> */}
+      </Switch>
+    
+    </BrowserRouter>
   );
 }
 
