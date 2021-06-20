@@ -17,3 +17,7 @@ The project will run on port 3000, so you can access it using the following URL:
 ## Run the test
 
 You can do that by typing `yarn test` or `npm test`.
+
+## Release the project
+
+Running `yarn build` or `npm build` will minify and optimise the js and css and make a nice bundle that you can then deploy on production.
