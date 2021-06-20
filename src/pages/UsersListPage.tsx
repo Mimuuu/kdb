@@ -17,7 +17,7 @@ function UsersListPage() {
     }
 
     loadUsers();
-  });
+  }, []);
 
   if (error) return <p className={styles.error}>{error}</p>
 
