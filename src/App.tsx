@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import UsersListPage from "./pages/UsersListPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 import styles from "./App.module.scss";
 
@@ -14,10 +15,11 @@ function App() {
         </header>
 
         <Switch>
-          <Route path="/" component={UsersListPage} />
-          {/* <Route path="/:userId" component={UserPage} /> */}
+          <Route path="/" component={UsersListPage} exact />
+          {/* <Route path="/:userId" component={UserPage} exact/> */}
+
+          <Route component={NotFoundPage} />
         </Switch>
-    
       </BrowserRouter>
     </div>
   );
