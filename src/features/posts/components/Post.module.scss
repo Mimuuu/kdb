@@ -7,4 +7,29 @@
     font-weight: 600;
     margin-bottom: 5px;
   }
+
+  .commentsContainer {
+    margin-top: 5px;
+
+    .toggle {
+      margin: 10px 0;
+      font-size: 0.8em;
+      cursor: pointer;
+      display: inline;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .comments {
+      height: 0;
+      overflow: hidden;
+      margin-left: 20px;
+
+      &.visible {
+        height: auto;
+      }
+    }
+  }
 }
