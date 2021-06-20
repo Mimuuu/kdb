@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import UsersList from './UsersList';
 import { User } from '../types';
 
@@ -34,13 +35,13 @@ test("should render empty text when the users list is empty", () => {
 });
 
 test("should not render empty text when the users list is not empty", () => {
-  render(<UsersList users={mockUsers} />);
+  render(<BrowserRouter><UsersList users={mockUsers} /></BrowserRouter>);
   const emptyTxt = screen.queryByText(/No users found/i);
   expect(emptyTxt).not.toBeInTheDocument();
 });
 
 test("should render the correct amount of users in the list", () => {
-  const { container } = render(<UsersList users={mockUsers} />);
+  const { container } = render(<BrowserRouter><UsersList users={mockUsers} /></BrowserRouter>);
   const component = container.firstChild;
   expect(component?.childNodes.length).toBe(mockUsers.length);
 });

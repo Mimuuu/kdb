@@ -1,4 +1,5 @@
 import { User } from "../types";
+import UserCard from "./UserCard";
 import styles from "./UsersList.module.scss";
 
 interface Props {
@@ -10,8 +11,7 @@ function UsersList({ users }: Props) {
 
   return (
     <div className={styles.container}>
-      {/* {users.map(u => <UserCard key={u.id} u={u} />)} */}
-      {users.map(u => <p key={u.id}>{u.name}</p>)}
+      {users.map(u => <UserCard key={u.id} u={u} />)}
     </div>
   );
 }
